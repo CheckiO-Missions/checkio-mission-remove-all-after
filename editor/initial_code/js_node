@@ -1,19 +1,24 @@
 "use strict";
 
-function sumTwo(a, b) {
-    // sums two passed arguments
-
+function removeAllAfter(a, b) {
     // your code here
-    return 0;
+    return undefined;
 }
 
 var assert = require('assert');
+
 if (!global.is_checking) {
     console.log('Example:');
-    console.log(sumTwo(3, 2));
+    console.log(removeAllAfter([1, 2, 3, 4, 5], 3));
 
-    // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(sumTwo(3, 2), 5);
-    assert.equal(sumTwo(5, 7), 12);
+    // These "asserts" are used for self-checking
+    assert.deepEqual(removeAllAfter([1, 2, 3, 4, 5], 3), [1, 2, 3]);
+    assert.deepEqual(removeAllAfter([1, 1, 2, 2, 3, 3], 2), [1, 1, 2]);
+    assert.deepEqual(removeAllAfter([1, 1, 2, 4, 2, 3, 4], 2), [1, 1, 2]);
+    assert.deepEqual(removeAllAfter([1, 1, 5, 6, 7], 2), [1, 1, 5, 6, 7]);
+    assert.deepEqual(removeAllAfter([], 0), []);
+    assert.deepEqual(removeAllAfter([7, 7, 7, 7, 7, 7, 7, 7, 7], 7), [7]);
+
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
+    

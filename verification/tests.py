@@ -11,26 +11,42 @@ Each test is a dict with
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": [[1,2,3,4,5], 3],
+            "answer": [1,2,3],
+            "explanation": "4 and 5 go after 3, which means should be removed"
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
+            "input": [[1,1,2,2,3,3], 2],
+            "answer": [1,1,2],
+            "explanation": "only first '2' counts, the second '2' should be removed"
+        },
+        {
+            "input": [[1,1,2,4,2,3,4], 2],
+            "answer": [1,1,2],
+        },
+        {
+            "input": [[1,1,5,6,7], 2],
+            "answer": [1,1,5,6,7],
+            "explanation": "Nothing should be removed if nothing is found"
+        },
+        {
+            "input": [[], 0],
+            "answer": [],
+            "explanation": "Empty list stays unchanged"
+        },
+        {
+            "input": [[7,7,7,7,7,7,7,7,7], 7],
+            "answer": [7]
         }
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": [[10, 1, 5, 6, 7, 10], 5],
+            "answer": [10, 1, 5],
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
+            "input": [[1,2, 6,7,1,2,4,6,7,8,3,5,2,3], 6],
+            "answer": [1,2,6],
         }
     ]
 }

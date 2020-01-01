@@ -1,1 +1,1 @@
-checkio --domain py autofillrepo --py-function sum_two --js-function sumTwo .
+checkio --domain py autofillrepo --py-function remove_all_after --js-function removeAllAfter .
