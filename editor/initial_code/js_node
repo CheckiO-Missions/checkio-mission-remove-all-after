@@ -1,6 +1,6 @@
 "use strict";
 
-function removeAllBefore(items, border) {
+function removeAllAfter(items, border) {
     // your code here
     return items;
 }

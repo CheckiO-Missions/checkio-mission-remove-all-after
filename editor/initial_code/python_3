@@ -1,7 +1,7 @@
 from typing import Iterable
 
 
-def remove_all_before(items: list, border: int) -> Iterable:
+def remove_all_after(items: list, border: int) -> Iterable:
     # your code here
     return items
 
