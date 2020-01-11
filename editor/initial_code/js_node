@@ -1,8 +1,8 @@
 "use strict";
 
-function removeAllAfter(a, b) {
+function removeAllBefore(items, border) {
     // your code here
-    return undefined;
+    return items;
 }
 
 var assert = require('assert');

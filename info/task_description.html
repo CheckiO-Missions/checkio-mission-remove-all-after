@@ -1,5 +1,5 @@
 <p>
-    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from array.
+    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %}.
 </p>
 
 <p style="text-align: center;">
@@ -7,21 +7,20 @@
 </p>
 
 <p>
-    For illustration, we have an array [1, 2, 3, 4, 5] and we need to remove all the elements that go after 3 - which is 4 and 5.
+    For illustration, we have an {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} [1, 2, 3, 4, 5] and we need to remove all the elements that go after 3 - which is 4 and 5.
 </p>
 
 <p>
-	We have two possible cases here: (1) if a cutting element cannot be found, then the array shoudn't be changed; (2) if the array is empty, then it should remain empty.
+	We have two edge cases here: (1) if a cutting element cannot be found, then the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} shoudn't be changed; (2) if the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} is empty, then it should remain empty.
 </p>
 
 
-<!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable{% endif %}.
+    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}List{% endif %} end border element.
 </p>
 
 <p>
-    <strong>Output: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable{% endif %}.
+    <strong>Output: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable (tuple, list, iterator ...){% endif %}.
 </p>
 
 
