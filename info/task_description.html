@@ -1,5 +1,5 @@
 <p>
-    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %}.
+    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from {% if is_js %}Array{% else %}list{% endif %}.
 </p>
 
 <p style="text-align: center;">
@@ -7,36 +7,32 @@
 </p>
 
 <p>
-    For illustration, we have an {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} [1, 2, 3, 4, 5] and we need to remove all the elements that go after 3 - which is 4 and 5.
+    For illustration, we have {% if is_js %}an Array{% else %}a list{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> and we need to remove all the elements that go after <b class="code">3</b> - which is <b class="code">4</b> and <b class="code">5</b>.
 </p>
 
 <p>
-	We have two edge cases here: (1) if a cutting element cannot be found, then the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} shouldn't be changed; (2) if the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} is empty, then it should remain empty.
+	We have two edge cases here:
+    <ul>
+        <li>if a cutting element cannot be found, then the {% if is_js %}Array{% else %}list{% endif %} shouldn't be changed;</li>
+        <li>if the {% if is_js %}Array{% else %}list{% endif %} is empty, then it should remains empty.</li>
+    </ul>
 </p>
 
 
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}List{% endif %} and the border element.
+    <strong>Input:</strong> {% if is_js %}Array of numbers{% else %}List of integers{% endif %} and the border element {% if is_js %}number{% else %}integer{% endif %}.
 </p>
 
 <p>
-    <strong>Output: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable (tuple, list, iterator ...){% endif %}.
+    <strong>Output:</strong> {% if is_js %}Array of numbers{% else %}List or other Iterable (tuple, iterator, generator ...) of integers{% endif %}.
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">removeAllAfter([1, 2, 3, 4, 5], 3) == [1, 2, 3]
-removeAllAfter([1, 1, 2, 2, 3, 3], 2) == [1, 1, 2]
-</pre>
-{% else %}
-<pre class="brush: python">remove_all_after([1, 2, 3, 4, 5], 3) == [1, 2, 3]
-remove_all_after([1, 1, 2, 2, 3, 3], 2) == [1, 1, 2]
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
