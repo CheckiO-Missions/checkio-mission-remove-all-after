@@ -1,0 +1,134 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+        The idea is to create a new list, iterate over the <b class="code">items</b> and add each value into the new list. After each additions, check if the last added value equals <b class="code">border</b>. If so - break iteration and return the new list you've filled.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+        The first step is to declare <b class="code">result</b> variable with the initial value of empty list. Right after iterate over the <b class="code">items</b>, using <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What to do next? I need a hint.
+    </div>
+    <div class="answer">
+        <p>
+        Since you have to end up taking <b class="code">i</b>-s after the <b class="code">border</b>, you may just add each <b class="code">i</b> into <b class="code">result</b> with no doubt. Use <a target="_blank" href="https://www.w3schools.com/python/ref_list_append.asp">list.append()</a> method for this purpose.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>How to perform checking values and break iteration, if I already added <b class="code">border</b> into <b class="code">result</b>?</p>
+    </div>
+    <div class="answer">
+        <p>
+        It's that simple, as you said!) You already added current <b class="code">i</b> into the <b class="code">result</b>. Now, using <b class="code">if</b> statement, check if <b class="code">i</b> equals <b class="code">border</b> with <b class="code">==</b> operator. If so, use  <b class="code">break</b> command to stop iteration.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    if i == border:
+        break
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+        It's almost all. You just need to wrap your code into function expression and return the list you've filled - <b class="code">result</b>.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    result = []
+    for i in items:
+        result.append(i)
+        if i == border:
+            break
+            
+    return result
+        </pre>
+        <p>
+            You may try to "optimize" the code above and put <b class="code">return result</b> inside <b class="code">if</b> statement instead of <b class="code">break</b>. But in case <b class="code">border</b> is not in <b class="code">items</b> or <b class="code">items</b> is empty at all, your function returns nothing (<b class="code">None</b>)!  
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            This solutions looks like previous a bit, but uses <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a> function. It yields each value "outside" function and stops, when <b class="code">border</b> was the last yielded.
+        </p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    for i in items:
+        yield i
+        if i == border:
+            break
+        </pre>
+        <p>
+            In this solutions return a slice of <b class="code">items</b> including <b class="code">border</b> after finding its index or the whole <b class="code">items</b>.
+        </p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    return items[:items.index(border)+1] if border in items else items
+        </pre>
+        <p>
+            Why <b class="code">list.index()</b> method did not raise an exception here? Because despite of the written order of commands, <b class="code">if border in items</b> actually executes first! 
+        </p>
+        <p>Click "Best solutions" at mission menu and see a lot of other
+        interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it!
+    </div>
+</div>
+</body>

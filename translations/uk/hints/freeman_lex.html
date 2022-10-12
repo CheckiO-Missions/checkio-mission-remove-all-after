@@ -1,0 +1,133 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я уявлення не маю, як розпочати розв'язання цієї місії.
+    </div>
+    <div class="answer">
+        <p>
+            Ідея у тому, щоб створити новий список, проходити по <b class="code">items</b> і додавати кожне значення у новий список. Після кожного додавання, перевіряти чи останнє додане значення рівне <b class="code">border</b>. Якщо так - припинити ітерацію і повернути той список, що ти заповнив.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, то з чого мені почати?
+    </div>
+    <div class="answer">
+        <p>
+            Першим кроком проголоси змінну <b class="code">result</b> з початковим значенням у вигляді порожнього списку. Відразу після цього ітеруй списком <b class="code">items</b>, використовуючи цикл <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Що робити далі? Мені потрібна підказка.
+    </div>
+    <div class="answer">
+        <p>
+            Оскільки ти маєш завершити взяття елементів <b class="code">i</b> після <b class="code">border</b>, ти поки можеш просто додавати кожен елемент <b class="code">i</b> в <b class="code">result</b> без жодних сумнівів. Використай метод <a target="_blank" href="https://www.w3schools.com/python/ref_list_append.asp">list.append()</a> для цього.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Як здійснити перевірку значень і припинення ітерації, якщо я вже додав <b class="code">border</b> в <b class="code">result</b>?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Це так просто, як ти щойно сказав!) Ти вже додав поточний елемент <b class="code">i</b> в <b class="code">result</b>. Тепер, використовуючи вираз <b class="code">if</b>, перевір чи <b class="code">i</b> рівне <b class="code">border</b> з оператором <b class="code">==</b>. Якщо так, використай команду <b class="code">break</b>, щоб припинити проходження списком.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    if i == border:
+        break
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        То як має виглядати моє остаточне рішення?
+    </div>
+    <div class="answer">
+        <p>
+            Це майже все. Тобі лише потрібно обгорнути твій код у вираз функції і повернути список, що ти заповнив - <b class="code">result</b>.
+        </p>
+        <p>Ось повне рішення:</p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    result = []
+    for i in items:
+        result.append(i)
+        if i == border:
+            break
+            
+    return result
+        </pre>
+        <p>
+            Тобі може спасти на думку "оптимізувати" код вище і помістити <b class="code">return result</b> всередину виразу <b class="code">if</b> замість <b class="code">break</b>. Але у випадку, коли <b class="code">border</b> не виявиться в <b class="code">items</b> або <b class="code">items</b> взагалі порожній, твоя функція нічого не поверне (<b class="code">None</b>)!  
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім Python Ніндзею!
+    </div>
+    <div class="answer">
+        <p>Звісно, тримай!</p>
+        <p>
+            Цей розв'язок виглядає трохи як попередній, але використовує функцію <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a>. Вона видає кожне значення "назовні" функції і припиняє роботу, коли <b class="code">border</b> було останнє видане значення.
+        </p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    for i in items:
+        yield i
+        if i == border:
+            break
+        </pre>
+        <p>
+            У цьому розв'язку повертай зріс <b class="code">items</b> включаючи <b class="code">border</b> після знаходження його індексу або цілий список <b class="code">items</b>.
+        </p>
+        <pre class="brush: python">
+from typing import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    return items[:items.index(border)+1] if border in items else items
+        </pre>
+        <p>
+            Чому метод <b class="code">list.index()</b> не викликав виключення тут? Тому що, незважаючи на написаний порядок команд, <b class="code">if border in items</b> насправді виконується першою! 
+        </p>
+        <p>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>
