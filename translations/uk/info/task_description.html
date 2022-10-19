@@ -1,0 +1,38 @@
+<p>
+    Не всі елементи важливі. У цій місії тобі потрібно видалити всі елементи, що йдуть після даного елемента у {% if is_js %}масиві{% else %}списку{% endif %}.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Для прикладу, маємо {% if is_js %}масив{% else %}список{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> і нам потрібно видалити всі елементи, що йдуть після <b class="code">3</b> - це <b class="code">4</b> і <b class="code">5</b>.
+</p>
+
+<p>
+	Тут можливі два граничні випадки:
+    <ul>
+        <li>якщо межовий елемент не знаходиться, тоді {% if is_js %}масив{% else %}список{% endif %} повертається у незмінному вигляді;</li>
+        <li>якщо {% if is_js %}масив{% else %}список{% endif %} порожній, він повертається порожнім.</li>
+    </ul>
+</p>
+
+
+<p>
+    <strong>Вхідні дані:</strong> {% if is_js %}Масив{% else %}Список{% endif %} цілих чисел і межовий елемент - ціле число.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> {% if is_js %}Масив{% else %}Список або інший ітеративний об'єкт (кортеж, ітератор, генератор ...) цілих чисел{% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
