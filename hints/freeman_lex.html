@@ -1,17 +1,17 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        I have no idea how to start solving this mission.
+        <i>I have no idea how to start solving this mission.</i>
     </div>
     <div class="answer">
         <p>
-        The idea is to create a new list, iterate over the <b class="code">items</b> and add each value into the new list. After each additions, check if the last added value equals <b class="code">border</b>. If so - break iteration and return the new list you've filled.
+        The idea is to create a new list, iterate over the <b class="code">items</b> and add each value into the new list. After each addition, check if the last added value equals <b class="code">border</b>. If so - break iteration and return the new list you've filled.
         </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Ok, what should I start from?
+        <i>Ok, what should I start from?</i>
     </div>
     <div class="answer">
         <p>
@@ -26,7 +26,7 @@ for i in items:
 </div>
 <div class="question-answer">
     <div class="question">
-        What to do next? I need a hint.
+        <i>What to do next? I need a hint.</i>
     </div>
     <div class="answer">
         <p>
@@ -36,12 +36,13 @@ for i in items:
 result = []
 for i in items:
     result.append(i)
+    ...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        <p>How to perform checking values and break iteration, if I already added <b class="code">border</b> into <b class="code">result</b>?</p>
+        <p><i>How to perform checking values and break iteration, if I already added <b class="code">border</b> into <b class="code">result</b>?</i></p>
     </div>
     <div class="answer">
         <p>
@@ -53,16 +54,17 @@ for i in items:
     result.append(i)
     if i == border:
         break
+...
         </pre>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        So, how my final solution should look like?
+        <i>So, how my final solution should look like?</i>
     </div>
     <div class="answer">
         <p>
-        It's almost all. You just need to wrap your code into function expression and return the list you've filled - <b class="code">result</b>.
+        It's almost all. You just need to wrap your code into a function expression and return the list you've filled - <b class="code">result</b>.
         </p>
         <p>Here is the whole solution:</p>
         <pre class="brush: python">
@@ -86,13 +88,13 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
 </div>
 <div class="question-answer">
     <div class="question">
-        Show me more solutions!<br />
-        'Cause I wanna be a real Python Ninnjaa!
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real Python Ninnjaa!</i>
     </div>
     <div class="answer">
         <p>Sure, grab it!</p>
         <p>
-            This solutions looks like previous a bit, but uses <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a> function. It yields each value "outside" function and stops, when <b class="code">border</b> was the last yielded.
+            This solution looks like previous a bit, but uses <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a> function. It yields each value "outside" function and stops, when <b class="code">border</b> was the last yielded.
         </p>
         <pre class="brush: python">
 from typing import Iterable
@@ -106,7 +108,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
             break
         </pre>
         <p>
-            In this solutions return a slice of <b class="code">items</b> including <b class="code">border</b> after finding its index or the whole <b class="code">items</b>.
+            In this solution return a slice of <b class="code">items</b> including <b class="code">border</b> after finding its index or the whole <b class="code">items</b>.
         </p>
         <pre class="brush: python">
 from typing import Iterable
@@ -117,15 +119,15 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
     return items[:items.index(border)+1] if border in items else items
         </pre>
         <p>
-            Why <b class="code">list.index()</b> method did not raise an exception here? Because despite of the written order of commands, <b class="code">if border in items</b> actually executes first! 
+            Why <b class="code">list.index()</b> method did not raise an exception here? Because, despite of the written order of commands, <b class="code">if border in items</b> actually executes first! 
         </p>
-        <p>Click "Best solutions" at mission menu and see a lot of other
-        interesting solutions!</p>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other
+        interesting solutions!</b></p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Thanks! I know and understand more now! Everything works fine!
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
     </div>
     <div class="answer">
         Glad to hear it!
