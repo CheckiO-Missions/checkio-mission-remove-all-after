@@ -1,17 +1,17 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        <i>Я уявлення не маю, як розпочати розв'язання цієї місії.</i>
+        <p>Я уявлення не маю, як розпочати розв'язання цієї місії.</p>
     </div>
     <div class="answer">
         <p>
-            Ідея у тому, щоб створити новий список, проходити по <b class="code">items</b> і додавати кожне значення у новий список. Після кожного додавання, перевіряти чи останнє додане значення рівне <b class="code">border</b>. Якщо так - припинити ітерацію і повернути той список, що ти заповнив.
+            💡 Ідея у тому, щоб створити новий список, проходити по <b class="code">items</b> і додавати кожне значення у новий список. Після кожного додавання, перевіряти чи останнє додане значення рівне <b class="code">border</b>. Якщо так - припинити ітерацію і повернути той список, що ти заповнив.
         </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Добре, то з чого мені почати?</i>
+        <p>Добре, то з чого мені почати?</p>
     </div>
     <div class="answer">
         <p>
@@ -26,7 +26,7 @@ for i in items:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Що робити далі? Мені потрібна підказка.</i>
+        <p>Що робити далі? Мені потрібна підказка.</p>
     </div>
     <div class="answer">
         <p>
@@ -42,7 +42,7 @@ for i in items:
 </div>
 <div class="question-answer">
     <div class="question">
-        <p><i>Як здійснити перевірку значень і припинення ітерації, якщо я вже додав <b class="code">border</b> в <b class="code">result</b>?</i></p>
+        <p>Як здійснити перевірку значень і припинення ітерації, якщо я вже додав <b class="code">border</b> в <b class="code">result</b>?</p>
     </div>
     <div class="answer">
         <p>
@@ -60,7 +60,7 @@ for i in items:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>То як має виглядати моє остаточне рішення?</i>
+        <p>То як має виглядати моє остаточне рішення?</p>
     </div>
     <div class="answer">
         <p>
@@ -68,7 +68,7 @@ for i in items:
         </p>
         <p>Ось повне рішення:</p>
         <pre class="brush: python">
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def remove_all_after(items: list[int], border: int) -> Iterable[int]:
@@ -88,8 +88,8 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Покажи мені більше розв'язків!<br />
-        Адже я хочу стати справжнім Python Ніндзею!</i>
+        <p>Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім 🥇 Python Ніндзею!</p>
     </div>
     <div class="answer">
         <p>Звісно, тримай!</p>
@@ -97,7 +97,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
             Цей розв'язок виглядає трохи як попередній, але використовує функцію <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a>. Вона видає кожне значення "назовні" функції і припиняє роботу, коли <b class="code">border</b> було останнє видане значення.
         </p>
         <pre class="brush: python">
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def remove_all_after(items: list[int], border: int) -> Iterable[int]:
@@ -111,7 +111,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
             У цьому розв'язку повертай зріс <b class="code">items</b> включаючи <b class="code">border</b> після знаходження його індексу або цілий список <b class="code">items</b>.
         </p>
         <pre class="brush: python">
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def remove_all_after(items: list[int], border: int) -> Iterable[int]:
@@ -126,10 +126,10 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Дякую! Тепер я знаю і розумію більше! Все працює як слід!</i>
+        <p>Дякую! Тепер я знаю і розумію більше! Все працює як слід!</p>
     </div>
     <div class="answer">
-        Приємно це чути!
+        👍 Приємно це чути!
     </div>
 </div>
 </body>
