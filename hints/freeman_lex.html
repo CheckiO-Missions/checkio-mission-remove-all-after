@@ -67,6 +67,7 @@ for i in items:
         It's almost all. You just need to wrap your code into a function expression and return the list you've filled - <b class="code">result</b>.
         </p>
         <p>Here is the whole solution:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 from collections.abc import Iterable
 
@@ -81,6 +82,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
             
     return result
         </pre>
+        </div>
         <p>
             You may try to "optimize" the code above and put <b class="code">return result</b> inside <b class="code">if</b> statement instead of <b class="code">break</b>. But in case <b class="code">border</b> is not in <b class="code">items</b> or <b class="code">items</b> is empty at all, your function returns nothing (<b class="code">None</b>)!  
         </p>
@@ -96,6 +98,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
         <p>
             This solution looks like previous a bit, but uses <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a> function. It yields each value "outside" function and stops, when <b class="code">border</b> was the last yielded.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 from collections.abc import Iterable
 
@@ -107,9 +110,11 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
         if i == border:
             break
         </pre>
+        </div>
         <p>
             In this solution return a slice of <b class="code">items</b> including <b class="code">border</b> after finding its index or the whole <b class="code">items</b>.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 from collections.abc import Iterable
 
@@ -118,6 +123,7 @@ def remove_all_after(items: list[int], border: int) -> Iterable[int]:
 
     return items[:items.index(border)+1] if border in items else items
         </pre>
+            </div>
         <p>
             Why <b class="code">list.index()</b> method did not raise an exception here? Because, despite of the written order of commands, <b class="code">if border in items</b> actually executes first! 
         </p>
