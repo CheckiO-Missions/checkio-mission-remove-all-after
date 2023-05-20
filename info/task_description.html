@@ -1,5 +1,5 @@
 <p>
-    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from {% if is_js %}Array{% else %}list{% endif %}.
+    Not all of the elements are important. What you need to do here is to remove all of the elements after the given one from {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %}.
 </p>
 
 <p style="text-align: center;">
@@ -7,24 +7,24 @@
 </p>
 
 <p>
-    For illustration, we have {% if is_js %}an Array{% else %}a list{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> and we need to remove all the elements that go after <b class="code">3</b> - which is <b class="code">4</b> and <b class="code">5</b>.
+    For illustration, we have {% if is_js %}an <span translate="repeat">array</span>{% else %}a <span translate="repeat">list</span>{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> and we need to remove all the elements that go after <b class="code">3</b> - which is <b class="code">4</b> and <b class="code">5</b>.
 </p>
 
 <p>
 	We have two edge cases here:
     <ul>
-        <li>if a cutting element cannot be found, then the {% if is_js %}Array{% else %}list{% endif %} shouldn't be changed;</li>
-        <li>if the {% if is_js %}Array{% else %}list{% endif %} is empty, then it should remains empty.</li>
+        <li>if a cutting element cannot be found, then the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} shouldn't be changed;</li>
+        <li>if the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} is empty, then it should remains empty.</li>
     </ul>
 </p>
 
 
 <p>
-    <strong>Input:</strong> {% if is_js %}Array of numbers{% else %}List of integers{% endif %} and the border element {% if is_js %}number{% else %}integer{% endif %}.
+    <strong>Input:</strong> {% if is_js %}<span translate="repeat">Array</span> of <span translate="repeat">numbers</span>{% else %}<span translate="repeat">List</span> of <span translate="repeat">integers</span>{% endif %} and the border element {% if is_js %}<span translate="repeat">number</span>{% else %}<span translate="repeat">integer</span>{% endif %}.
 </p>
 
 <p>
-    <strong>Output:</strong> {% if is_js %}Array of numbers{% else %}List or other Iterable (tuple, iterator, generator ...) of integers{% endif %}.
+    <strong>Output:</strong> {% if is_js %}<span translate="repeat">Array</span> of <span translate="repeat">numbers</span>{% else %}<span translate="repeat">List</span> or other <span translate="repeat">Iterable</span> (<span translate="repeat">tuple</span>, <span translate="repeat">iterator</span>, <span translate="repeat">generator</span> ...) of <span translate="repeat">integers</span>{% endif %}.
 </p>
 
 
