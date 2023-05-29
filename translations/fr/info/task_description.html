@@ -1,5 +1,5 @@
 <p>
-    Tous les éléments ne sont pas importants. Ce que vous devez faire ici est de supprimer tous les éléments après l'élément donné de {% if is_js %}<span>array</span>{% else %}<span>list</span>{% endif %}.
+    Tous les éléments ne sont pas importants. Ce que vous devez faire ici est de supprimer tous les éléments après l'élément donné de {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %}<span>liste</span> <span>(list)</span>{% endif %}.
 </p>
 
 <p style="text-align: center;">
@@ -7,24 +7,24 @@
 </p>
 
 <p>
-    Par exemple, nous avons {% if is_js %}un <span>tableau</span> <span>(array)</span>{% else %} une <span>liste</span> <span>(list)</span>{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> et nous devons supprimer tous les éléments qui suivent <b class="code">3</b> - c'est-à-dire <b class="code">4</b> et <b class="code">5</b>.
+    Par exemple, nous avons {% if is_js %}un <span>tableau</span> <span>(array)</span>{% else %}une <span>liste</span> <span>(list)</span>{% endif %} <b class="code">[1, 2, 3, 4, 5]</b> et nous devons supprimer tous les éléments qui suivent <b class="code">3</b> - c'est-à-dire <b class="code">4</b> et <b class="code">5</b>.
 </p>
 
 <p>
 	Nous avons ici deux cas de figure:
     <ul>
-        <li>si un élément de coupe ne peut être trouvé, le<span>tableau</span> {% if is_js %}<span></span> <span>(array)</span><span> </span>{% else %} <span>liste</span> <span>(list)</span>{% endif %} ne doit pas être modifié;</li>
-        <li>si le<span>tableau</span> {% if is_js %}<span></span> <span>(array)</span><span> </span>{% else %} <span>liste</span> <span>(list)</span>{% endif %} est vide, il doit le rester.</li>
+        <li>si un élément de coupe ne peut être trouvé, le {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %}<span>liste</span> <span>(list)</span>{% endif %} ne doit pas être modifié;</li>
+        <li>si le {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %}<span>liste</span> <span>(list)</span>{% endif %} est vide, il doit le rester.</li>
     </ul>
 </p>
 
 
 <p>
-   <strong>Entrée:</strong> {% if is_js %}<span>Tableau</span> <span>(Array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %}<span>Liste</span> <span>(List)</span> d'<span>entiers</span> <span>(integers)</span>{% endif %} et l'élément de bordure {% if is_js %}<span>nombre</span> <span>(number)</span>{% else %}<span>entier</span> <span>(integer)</span>{% endif %}.
+   <strong>Entrée:</strong> {% if is_js %}<span>Tableau</span> <span>(array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %}<span>Liste</span> <span>(list)</span> d'<span>entiers</span> <span>(integers)</span>{% endif %} et l'élément de bordure {% if is_js %}<span>nombre</span> <span>(number)</span>{% else %}<span>entier</span> <span>(integer)</span>{% endif %}.
 </p>
 
 <p>
-   <strong>Sortie:</strong> {% if is_js %}<span>Tableau</span> <span>(Array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %}<span>Liste</span> <span>(List)</span> ou autre <span>itérable</span> <span>(Iterable)</span> <span>(tuple</span> <span>(tuple)</span>, <span>itérateur</span> <span>(iterator)</span>, <span>générateur</span> <span>(generator)</span>...) d'<span>entiers</span> <span>(integers)</span>{% endif %}.
+   <strong>Sortie:</strong> {% if is_js %}<span>Tableau</span> <span>(array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %}<span>Liste</span> <span>(list)</span> ou autre <span>Itérable</span> <span>(Iterable)</span> (<span>tuple</span>, <span>itérateur</span> <span>(iterator)</span>, <span>générateur</span> <span>(generator)</span>) d'<span>entiers</span> <span>(integers)</span>{% endif %}.
 </p>
 
 
