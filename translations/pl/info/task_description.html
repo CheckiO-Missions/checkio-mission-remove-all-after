@@ -1,0 +1,38 @@
+<p>
+    Nie wszystkie elementy są ważne. To, co należy zrobić, to usunąć wszystkie elementy po danym elemencie z sekwencji.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Na przykład, mamy sekwencję <b class="code">[1, 2, 3, 4, 5]</b> i musimy usunąć wszystkie elementy, które następują po <b class="code">3</b> - czyli <b class="code">4</b> i <b class="code">5</b>.
+</p>
+
+<p>
+	Mamy tutaj dwa przypadki brzegowe:
+    <ul>
+        <li>jeśli nie można znaleźć elementu tnącego, sekwencja nie powinna zostać zmieniona;</li>
+        <li>jeśli sekwencja jest pusta, to powinna pozostać pusta.</li>
+    </ul>
+</p>
+
+
+<p>
+   <strong>Dane wejściowe:</strong> {% if is_js %}Tablica{% else %}Lista{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> liczb całkowitych <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
+</p>
+
+<p>
+   <strong>Dane wyjściowe:</strong> {% if is_js %}Tablica <span>(Array)</span> liczb całkowitych <span>(number)</span>{% else %} Lista <span>(List)</span> lub inna Iterowalna <span>(Iterable)</span> (krotka <span>(tuple)</span>, iterator, generator...) liczb całkowitych <span>(int)</span>{% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Przykłady:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>

@@ -1,0 +1,141 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            pomysł polega na utworzeniu nowej listy, iterowaniu po <b class="code">items</b> i dodawaniu każdej wartości do nowej listy. Po każdym dodaniu proszę sprawdzić, czy ostatnio dodana wartość jest równa <b class="code">border</b>. Jeśli tak - przerwij iterację i zwróć nową listę, którą wypełniłeś.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+        Pierwszym krokiem jest zadeklarowanie zmiennej <b class="code">result</b> z początkową wartością pustej listy. Zaraz po tym proszę wykonać iterację po <b class="code">items</b>, używając <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Co robić dalej? Proszę o podpowiedź.</p>
+    </div>
+    <div class="answer">
+        <p>
+        Ponieważ musi Pan pobrać <b class="code">i</b>-s po <b class="code">border</b>, może Pan po prostu dodać każde <b class="code">i</b> do <b class="code">result</b> bez żadnych wątpliwości. W tym celu proszę użyć metody <a target="_blank" href="https://www.w3schools.com/python/ref_list_append.asp">list.append()</a>.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p><p>Jak sprawdzić wartości i przerwać iterację, jeśli już dodałem <b class="code">border</b> do <b class="code">result</b>?</p></p>
+    </div>
+    <div class="answer">
+        <p>
+        To takie proste, jak Pan powiedział!) Dodał Pan już bieżące <b class="code">i</b> do <b class="code">result</b>. Teraz, używając instrukcji <b class="code">if</b>, proszę sprawdzić, czy <b class="code">i</b> jest równe <b class="code">border</b> z operatorem <b class="code">==</b>. Jeśli tak, proszę użyć polecenia <b class="code">break</b>, aby zatrzymać iterację.
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    if i == border:
+        break
+...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+        To prawie wszystko. Wystarczy zawinąć swój kod w wyrażenie funkcyjne i zwrócić wypełnioną listę - <b class="code">result</b>.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    result = []
+    for i in items:
+        result.append(i)
+        if i == border:
+            break
+            
+    return result
+        </pre>
+        </div>
+        <p>
+            Może Pan spróbować "zoptymalizować" powyższy kod i umieścić <b class="code">return result</b> wewnątrz instrukcji <b class="code">if</b> zamiast <b class="code">break</b>. Ale w przypadku, gdy <b class="code">border</b> nie znajduje się w <b class="code">items</b> lub <b class="code">items</b> jest w ogóle puste, Pana funkcja nie zwraca nic (<b class="code">None</b>)!  
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            To rozwiązanie wygląda trochę jak poprzednie, ale używa funkcji <a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a>. Zwraca ona każdą wartość "na zewnątrz" funkcji i zatrzymuje się, gdy <b class="code">border</b> była ostatnią zwracaną wartością.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    for i in items:
+        yield i
+        if i == border:
+            break
+        </pre>
+        </div>
+        <p>
+            W tym rozwiązaniu zwracany jest wycinek <b class="code">items</b> zawierający <b class="code">border</b> po znalezieniu jego indeksu lub cały <b class="code">items</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    return items[:items.index(border)+1] if border in items else items
+        </pre>
+            </div>
+        <p>
+            Dlaczego metoda <b class="code">list.index()</b> nie zgłosiła tutaj wyjątku? Ponieważ, pomimo zapisanej kolejności poleceń, <b class="code">if border in items</b> faktycznie wykonuje się jako pierwsza! 
+        </p>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
