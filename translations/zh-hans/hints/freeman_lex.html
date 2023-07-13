@@ -1,0 +1,141 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这项任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡我们的想法是创建一个新列表，遍历<b class="code">items</b> 并将每个值添加到新列表中。每次添加后，检查最后添加的值是否等于<b class="code">border</b> 。如果是，则中断迭代并返回已填充的新列表。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从什么开始呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+        第一步是用空列表的初始值声明<b class="code">result</b> 变量。紧接着遍历<b class="code">items</b> ，使用<a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a> 。
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>下一步该怎么做？我需要一个提示。</p>
+    </div>
+    <div class="answer">
+        <p>
+        因为你必须在<b class="code">border</b> 之后取<b class="code">i</b>-s ，你可以直接将每个<b class="code">i</b> 添加到<b class="code">result</b> 中。为此请使用<a target="_blank" href="https://www.w3schools.com/python/ref_list_append.asp">list.append()</a> 方法。
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p><p>如果我已经将<b class="code">border</b> 添加到<b class="code">result</b> 中，如何执行校验值和中断迭代？</p></p>
+    </div>
+    <div class="answer">
+        <p>
+        就像您说的那样简单！)您已经将当前的<b class="code">i</b> 添加到<b class="code">result</b> 中。现在，使用<b class="code">if</b> 语句，用<b class="code">==</b> 运算符检查<b class="code">i</b> 是否等于<b class="code">border</b> 。如果是，使用<b class="code">break</b> 命令停止迭代。
+        </p>
+        <pre class="brush: python">
+result = []
+for i in items:
+    result.append(i)
+    if i == border:
+        break
+...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是怎样的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+        几乎是全部。您只需要将您的代码封装成一个函数表达式，并返回您所填充的列表 -<b class="code">result</b> 。
+        </p>
+        <p>下面是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    result = []
+    for i in items:
+        result.append(i)
+        if i == border:
+            break
+            
+    return result
+        </pre>
+        </div>
+        <p>
+            您可以尝试 "优化 "上面的代码，将<b class="code">return result</b> 放在<b class="code">if</b> 语句中，而不是<b class="code">break</b> 中。但是，如果<b class="code">border</b> 不在<b class="code">items</b> 中，或者<b class="code">items</b> 完全为空，您的函数将什么也不返回 (<b class="code">None</b>)！  
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            这个解决方案看起来和前面的有点像，但使用的是<a target="_blank" href="https://www.tutorialsteacher.com/python/python-generator">generator</a> 函数。它在函数 "外部 "产生每个值，当<b class="code">border</b> 是最后产生的值时停止。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    for i in items:
+        yield i
+        if i == border:
+            break
+        </pre>
+        </div>
+        <p>
+            在这个解决方案中，在找到<b class="code">border</b> 的索引后，返回<b class="code">items</b> 的一个片段，包括 或整个<b class="code">items</b> 。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def remove_all_after(items: list[int], border: int) -> Iterable[int]:
+
+    return items[:items.index(border)+1] if border in items else items
+        </pre>
+            </div>
+        <p>
+            为什么<b class="code">list.index()</b> 方法在这里没有引发异常？因为，尽管写的是命令顺序，<b class="code">if border in items</b> 实际上是先执行的！ 
+        </p>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢！我现在知道并理解了更多！一切正常！</p>
+    </div>
+    <div class="answer">
+        很高兴听到这个消息！
+    </div>
+</div>
+</body>
