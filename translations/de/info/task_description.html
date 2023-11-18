@@ -1,0 +1,38 @@
+<p>
+    Nicht alle Elemente sind wichtig. Was Sie hier tun müssen, ist, alle Elemente nach dem angegebenen Element aus der Sequenz zu entfernen.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Zur Veranschaulichung: Wir haben eine Sequenz <b class="code">[1, 2, 3, 4, 5]</b> und müssen alle Elemente entfernen, die auf <b class="code">3</b> folgen - das sind <b class="code">4</b> und <b class="code">5</b>.
+</p>
+
+<p>
+	Wir haben hier zwei Grenzfälle:
+    <ul>
+        <li>wenn ein schneidendes Element nicht gefunden werden kann, sollte die Sequenz nicht geändert werden;</li>
+        <li>wenn die Sequenz leer ist, dann sollte sie leer bleiben.</li>
+    </ul>
+</p>
+
+
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array{% else %}Liste{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> von ganzen Zahlen <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> {% if is_js %}Array von ganzen Zahlen <span>(number)</span>{% else %} Liste <span>(List)</span> oder andere Iterable (Tupel <span>(tuple)</span>, Iterator <span>(iterator)</span>, Generator <span>(generator)</span>...) von ganzen Zahlen <span>(int)</span>{% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
